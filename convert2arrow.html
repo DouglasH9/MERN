@@ -25,13 +25,13 @@
         I want to click anywhere in this paragraph tag and I want to be able to change the background color to whatever is in this input: <input type="text"/>.
     </p>
     <script>
-        const document.getElementById("button").onclick = () => setBackgroundColorById("paragraph" , "blue");
+        document.getElementById("button").onclick = () => setBackgroundColorById("paragraph" , "blue");
 
-        const document.getElementById("alert").onclick = () => alert(document.getElementById("popup-input").value);
+        document.getElementById("alert").onclick = () => alert(document.getElementById("popup-input").value);
 
-        const document.getElementById("hover-this").onmouseover = () => setBackgroundColorById("body" , "white");
+        document.getElementById("hover-this").onmouseover = () => setBackgroundColorById("body" , "white");
 
-        const document.getElementById("hover-this").onmouseout = () => setBackgroundColorById("body","white");
+        document.getElementById("hover-this").onmouseout = () => setBackgroundColorById("body","white");
 
         const getValueFromId = id => document.getElementById(id).value;
 
