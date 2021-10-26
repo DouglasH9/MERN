@@ -17,3 +17,15 @@ class Ninja {
         this.health += 10;
     }
 }
+
+class Sensei extends Ninja{
+    constructor(name){
+        super(name);
+        this.wisdom = 10;
+    }
+    wisdom(){
+        super.drinkSake();
+        console.log("Do as I say, not as I do.");
+    }
+
+}
