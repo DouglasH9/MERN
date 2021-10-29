@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
 import PersonCard from './Components/PersonCard';
+import PersonCard2 from './Components/PersonCard2';
 
 var personArr = [
   {"firstName" : "Jane", "lastName" : "Doe", "age" : 45, "hairColor" : "Black"},
@@ -16,6 +17,7 @@ function App() {
       {personArr.map(person => {
         return <PersonCard firstName={person.firstName} lastName={person.lastName} age={person.age} hairColor={person.hairColor}/>
       })}
+      <PersonCard2 firstName="Doug" lastName="Herman" age={39} hairColor="Brown"/>
     </div>
   );
 }
