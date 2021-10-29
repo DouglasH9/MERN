@@ -36,13 +36,17 @@ const HookForm = (props) => {
                 <label>Confirm Password: </label>
                 <input type="text" onChange={(e) => setPassCon(e.target.value)} />
             </div>
+            <div>
+                <label>Submit: </label>
+                <input type="submit"/>
+            </div>
         </form>
         
-        <p>First Name: {this.state.fName}</p>
-        <p>Last Name: {this.state.lName}</p>
-        <p>Email: {this.state.email}</p>
-        <p>Password: {this.state.password}</p>
-        <p>Confirm: {this.state.passCon}</p>
+        <p>First Name: {fName}</p>
+        <p>Last Name: {lName}</p>
+        <p>Email: {email}</p>
+        <p>Password: {password}</p>
+        <p>Confirm: {passCon}</p>
         </>
     )
 }
