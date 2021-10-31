@@ -25,15 +25,6 @@ const HookForm = (props) => {
         
     };
     
-
-    const formMessage = () => {
-        if ( hasBeenSubmitted ) {
-            return `Thank you for submitting the form!`;
-        } else {
-            return "Welcome! Please submit your info."
-        }
-    }
-
     const fNameValid = (e) => {
         setFName(e.target.value);
         if(e.target.value.length < 1){
@@ -133,7 +124,7 @@ const HookForm = (props) => {
                 <input type="text" onChange={passConValid} />
                 {
                     passConError ?
-                    <p>{setPassConError}</p> :
+                    <p>{passConError}</p> :
                     ""
                 }
             </div>
