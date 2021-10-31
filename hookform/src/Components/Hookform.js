@@ -60,7 +60,7 @@ const HookForm = (props) => {
 
     const passwordValid = (e) => {
         setPassword(e.target.value);
-        if(e.target.value.length < 8){
+        if(e.target.value.length < 8 && e.target.value.length > 0){
             setPassError("Passwords be at least 8 characters.");
         } else {
             setPassError("");
@@ -69,7 +69,7 @@ const HookForm = (props) => {
 
     const passConValid = (e) => {
         setPassCon(e.target.value);
-        if(passCon !== password){
+        if(passCon !== password && e.target.value.length > 0){
             setPassConError("Passwords must match!");
         } else {
             setPassConError("");
