@@ -77,58 +77,58 @@ const HookForm = (props) => {
     }
     return(
         <>
-            <form onSubmit={createUser}>
+            <form className="form-group" onSubmit={createUser}>
                 {
                     hasBeenSubmitted && !nameError ? 
                     <h2>Thank you for submitting the form!</h2>:
                     <h2>Welcome, please submit the form.</h2>
                 }
-            <div>
+            <div className="form-control">
                 <label>First Name: </label>
                 <input type="text" onChange={fNameValid} />
                 {
                     nameError ? 
-                    <p>{nameError}</p> :
+                    <p className="text-danger">{nameError}</p> :
                     ""
                 }
             </div>
-            <div>
+            <div className="form-control">
                 <label>Last Name: </label>
                 <input type="text" onChange={lNameValid} />
                 {
                     nameError ? 
-                    <p>{nameError}</p> :
+                    <p className="text-danger">{nameError}</p> :
                     ""
                 }
             </div>
-            <div>
+            <div className="form-control">
                 <label>Email: </label>
                 <input type="text" onChange={emailValid} />
                 {
                     emailError ? 
-                    <p>{emailError}</p> :
+                    <p className="text-danger">{emailError}</p> :
                     ""
                 }
             </div>
-            <div>
+            <div className="form-control">
                 <label>Password: </label>
                 <input type="text" onChange={passwordValid} />
                 {
                     passError ? 
-                    <p>{passError}</p> :
+                    <p className="text-danger">{passError}</p> :
                     ""
                 }
             </div>
-            <div>
+            <div className="form-control">
                 <label>Confirm Password: </label>
                 <input type="text" onChange={passConValid} />
                 {
                     passConError ?
-                    <p>{passConError}</p> :
+                    <p className="text-danger">{passConError}</p> :
                     ""
                 }
             </div>
-            <div>
+            <div className="form-control btn btn-primary">
                 <label>Submit: </label>
                 <input type="submit"/>
             </div>
