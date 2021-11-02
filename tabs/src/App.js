@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import MessageDisplay from './Components/DisplayContent';
+import TabRow from './Components/Tabs';
 
 function App() {
+
+  const[currentMessage, setCurrentMessage] = useState("something")
+
+  const gotNewMessage = (newMessage) => {setCurrentMessage(newMessage)}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TabRow onNewMessage={gotNewMessage}/>
+      <MessageDisplay message={currentMessage}/>
     </div>
   );
 }

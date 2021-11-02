@@ -1,16 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 
-const TabRow = (props) => {
-    const onClickHandler = (e) => {
-        e.preventDefault();
-        // some code
-    };
-
+const MessageDisplay = (props) => {
     return (
         <>
-        <div>
-            
-        </div>
+            <div className="messageContainer">
+                {props.message}
+            </div>
         </>
     )
 }
+
+export default MessageDisplay;

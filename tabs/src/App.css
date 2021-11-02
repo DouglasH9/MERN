@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.tabDiv{
+  min-height: 75px;
+  width: 150px;
+  border: 2px solid black;
+  margin: 10px;
+  background-color: pink;
+  cursor: pointer;
+}
+
+.tabHolder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
