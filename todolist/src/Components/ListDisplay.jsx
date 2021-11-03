@@ -12,14 +12,21 @@ const ItemDisplay = (props) => {
             setCompleted(false);
         }
     }
-    const isCompleted = true;
+    
+    const itemClasses = ["itemText"]
+
+    if(completed === true){
+        itemClasses.push("lineThrough")
+    }
     return (
         <div id="itemBoxContainer">
-            {props.items.map( (item) => {
-                return (<>
-                <div {isCompleted ? (className="checked") : (className = "itemBox")}>
-                    {item}<input name="completed" type="checkbox" onChange={CheckHandler}/>
-                </div>
+            {props.items.map( (item, i) => {
+
+                return (
+                <>
+                    <div className="itemBox" key={i}>
+                        <span className={itemClasses.join(" ")}>{item}</span><input name="completed" type="checkbox" onChange={CheckHandler}/>
+                    </div>
                 </>)
                 
             })}

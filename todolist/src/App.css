@@ -42,3 +42,10 @@
   justify-content: center;
   align-items: center;
 }
+.itemText{
+  font-weight: 900;
+}
+
+.lineThrough{
+  text-decoration: line-through;
+}
