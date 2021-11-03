@@ -9,10 +9,26 @@ function App() {
 
   const gotNewItem = (newItem) => {setCurrentItem([...currentItem, newItem])};
 
+  const setComplete = (i) => {
+    // const taskToComplete = [...currentItem];
+    // taskToComplete[i].isCompleted = !taskToComplete[i].isCompleted;
+    // setCurrentItem([...taskToComplete]);
+    setCurrentItem(currentItem.map((task, idx) => {
+      return i === idx ? 
+      {...task, isCompleted : !task.isCompleted} :
+      {...task}
+    } ))
+  }
+
+  const deleteThis = (idx) => {
+    console.log(idx);
+    setCurrentItem(currentItem.filter((_item, i) => i !== idx))
+  }
+
   return (
     <div className="App">
       <ToDoInput onNewItem={gotNewItem}/>
-      <ItemDisplay items={currentItem}/>
+      <ItemDisplay items={currentItem} setComplete ={setComplete} deleteThis = {deleteThis}/>
     </div>
   );
 }

@@ -5,7 +5,8 @@ const ToDoInput = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.onNewItem(item);
+        const task = {toDo:item, isCompleted:false}
+        props.onNewItem(task);
         setItem("");
     };
 
