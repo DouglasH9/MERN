@@ -18,8 +18,10 @@ const fiveHeadsSync = new Promise((resolve, reject) => {
     }
     if(headsCount === 5){
         resolve(`It took ${attempts} tries to flip five "heads"`)
+    } else if (attempts > 99){
+        reject("there was an error. too many flips")
     } else {
-        reject("there was an error")
+        reject("error")
     }
 })
 
