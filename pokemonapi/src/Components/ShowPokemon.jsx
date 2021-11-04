@@ -1,21 +1,26 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 const ShowPokemon = (props) => {
 
     const [pokemon, setPokemon] = useState([]);
+    const [isClicked, setIsClicked] = useState(false);
 
-    useEffect( () => {
-        axios.get("https://pokeapi.co/api/v2/pokemon?limit=150")
+    const setClickState = () => {
+        setIsClicked(true);
+    }
+
+    if(isClicked === true){
+        axios.get("https://pokeapi.co/api/v2/pokemon?limit=807")
             .then(res => {setPokemon(res.data.results)})
             
             .catch(err => {console.log(err)});
-    },[]);
+        }
     
 
     return(
         <>
-            
+            <button onClick={setClickState}>Wanna Catch 'em All?</button>
             <ul>
                 {pokemon.map((pokemon, i) => {
                     return <li key={i}>{pokemon.name}</li>
