@@ -1,26 +1,31 @@
-import react, {useEffect, useState} from "react";
-import axios from "axios";
+import React, {useState} from "react";
+import { useHistory } from "react-router";
+
 
 const StarForm = (props) => {
 
-    const [starInfo, setStarInfo] = useState([]);
+    const [searchType, setSearchType] = useState("people");
+    const [id, setId] = useState(1);
+    const history = useHistory();
 
-    useEffect( () => {
-        axios.get("https://swapi.dev/api/films/")
-        .then(res => {setStarInfo(res.data.results)})
-        .catch(err => {console.log(err)});
-        console.log("get request sent");
-    }, [])
-
+    const search = (e) => {
+        e.preventDefault();
+        history.push(`/${searchType}/${id}`);
+    }
 
     return (
-        <>
-            <ul>
-                {starInfo.map((starInfo, i) => {
-                    return <li key={i}>{starInfo.title}</li>
-                })}
-            </ul>
-        </>
+        <form onSubmit={search}>
+            <label>Search for: </label>
+            <select onChange={e => setSearchType(e.target.value)} value={searchType}>
+                <option>people</option>
+                <option>planets</option>
+            </select>
+
+            <label> Id: </label>
+            <input type="number" min={1} onChange={ (e) => setId(e.target.value)} value={id}/>
+            <input type="submit" value="Search"/>
+        </form>
     )
+
 }
 export default StarForm;
