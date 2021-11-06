@@ -15,7 +15,6 @@ const StarPeople = (props) => {
                 console.log(res);
                 setData(res.data);
                 setHomeWorld(res.data.homeworld)
-                // var homeURL = res.data.homeworld;
             })
             .catch( err => {
                 console.log(err);
@@ -36,6 +35,8 @@ const StarPeople = (props) => {
                 setHomeWorldData({error: "These are not the droids you're looking for"})
             })
         },[id, homeWorld]);
+    
+    
 
     return (
         
@@ -62,10 +63,10 @@ const StarPeople = (props) => {
                 Eye Color: {data.eye_color}
             </p>
             <p>
-                Home World: {data.homeworld}
+                Home World: {homeWorldData.name}
             </p>
             <p>
-                Home World: {homeWorldData.name}
+                Home World Page: 
             </p>
         </div>
         
