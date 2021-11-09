@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {useParams, Link, Redirect} from "react-router-dom";
+import {Link, Redirect, useParams} from "react-router-dom";
 
 const ProductDetail = (props) => {
     const [product, setProduct] = useState({})
@@ -9,7 +9,7 @@ const ProductDetail = (props) => {
 
     
     useEffect(() => {
-        axios.get("http://localhost:8000/api/product/" +id)
+        axios.get("http://localhost:8000/api/product/" + id)
         .then(res => setProduct(res.data))
         .catch(err => console.log(err));
     }, [id])

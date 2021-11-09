@@ -1,33 +1,38 @@
-import React, { useState } from "react";
+import React,{useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+import DeleteButton from "./DeleteButton";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 
 const ProductsList = (props) => {
 
-    const {removeFromDom} = props;
+    const [products, setProducts] = useState([]);
 
-    const deleteProduct = (productId) => {
-        axios.delete("http://localhost:8000/api/product/" +productId)
-            .then(res => {
-                removeFromDom(productId)
-            })
-            .catch(err => console.log(err));
+    useEffect( () => {
+        axios.get("http://localhost:8000/api/products")
+            .then(res => setProducts(res.data))
+    },[props.update])
+
+    const removeFromDom = productId => {
+        setProducts(products.filter(product => product._id !== productId))
     }
 
     return (
         <div>
-            {props.product.map( (product, i) => 
+            {products.map( (product, i) => 
             <div key={i}>
-                <p>Title: {product.title}, Price: ${product.price}, Description: {product.description}
-                </p>
-                <p>
-                <a href={"/api/product/" + product._id}>{product.title}</a> | <button onClick= {(e) =>{deleteProduct(product._id)}}>Delete</button>
-                </p>
+                <Link to={"/api/product/" + product._id}>
+                    {product.title}
+                </Link>
+                |
+                <Link to={"/api/product/" + product._id + "/edit"}>
+                    Edit
+                </Link>
+                <DeleteButton buttonName="Delete" productId={product._id} successCallBack={() => removeFromDom(product._id)}/>
             </div>
             )}
         </div>
-    )
+    );
 }
 
 export default ProductsList;
