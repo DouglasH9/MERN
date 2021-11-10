@@ -1,8 +1,9 @@
 import React, {useState} from "react";
+// import Main, {errors} from "../Views/Main";
 
 export default (props) => {
 
-    const {initialTitle, initialPrice, initialDescription, onSubmitProp, submitButtonName} = props;
+    const {initialTitle, initialPrice, initialDescription, onSubmitProp, submitButtonName, errors} = props;
     const [title, setTitle] = useState(initialTitle);
     const [price, setPrice] = useState(initialPrice);
     const [description, setDescription] = useState(initialDescription);
@@ -10,13 +11,18 @@ export default (props) => {
     const submitHandler = e => {
         e.preventDefault();
         onSubmitProp({title, price, description})
+        setTitle("")
+        setPrice(0)
+        setDescription("")
     }
 
     return(
+        
         <form onSubmit={submitHandler}>
             <div>
                 <label>Title of Product: </label>
                 <input type="text" name="title" onChange={(e)=> {setTitle(e.target.value)}} value={title} />
+                <p>{errors}</p>
             </div>
             <div>
                 <label>Price: </label>
@@ -25,10 +31,12 @@ export default (props) => {
             <div>
                 <label>Description: </label>
                 <input type="text" onChange={(e) => {setDescription(e.target.value)}} value={description}/>
+                <p>{errors}</p>
             </div>
             <div>
                 <input type="submit" value={submitButtonName} />
             </div>
         </form>
+        
     )
 }

@@ -30,9 +30,11 @@ const UpdateProduct = (props) => {
             .then(res => 
                 setIsEdited(true)
             )
-            .catch(err => console.log(err))
+            .catch(err => 
+                console.log(err))
         }
-            
+        
+    
 
     return isEdited ?
     <Redirect to="/api/products"/> :
@@ -52,6 +54,6 @@ const UpdateProduct = (props) => {
             )}
         </div>
     )
-            }
+}
 
 export default UpdateProduct;
