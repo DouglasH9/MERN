@@ -6,21 +6,26 @@ import ProductDetail from "./Views/ProductDetail";
 import UpdateProduct from "./Views/UpdateProduct";
 
 
+
+
+
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Route path="/api/products">
-          <Main/>
-        </Route>
-        <Route exact path="/api/product/:id">
-          <ProductDetail/>
-        </Route>
-        <Route exact path="/api/product/:id/edit">
-          <UpdateProduct/>
-        </Route>
-      </div>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <div className="App">
+          <Route path="/api/products">
+            <Main/>
+          </Route>
+          <Route exact path="/api/product/:id">
+            <ProductDetail/>
+          </Route>
+          <Route exact path="/api/product/:id/edit">
+            <UpdateProduct/>
+          </Route>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
