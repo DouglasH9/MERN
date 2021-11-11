@@ -2,11 +2,10 @@ import React, {useEffect, useState } from "react";
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import AuthorForm from "../Components/AuthorForm";
-import { useHistory, Redirect } from "react-router";
+import { Redirect } from "react-router";
 
 const UpdateAuthor = (props) => {
 
-    const history = useHistory();
     const {id} = useParams();
     const [author, setAuthor] = useState();
     const [loaded, setLoaded] = useState(false);
