@@ -9,7 +9,7 @@ const AuthorDetail = (props) => {
     const {id} = useParams();
 
     useEffect( () => {
-        axios.get("http://localhost:8000/api/author" + id)
+        axios.get("http://localhost:8000/api/author/" + id)
             .then(res => setAuthor(res.data))
             .catch(err => console.log(err))
     }, [id])
