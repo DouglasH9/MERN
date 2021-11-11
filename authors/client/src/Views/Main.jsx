@@ -8,7 +8,7 @@ export default (props) => {
     const [authors, setAuthors] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [update, setUpdate] = useState(false);
-    // const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/authors")
@@ -32,15 +32,16 @@ export default (props) => {
                     console.log(res.data.err)
                 }
             })
-            // .catch(err => {
-            //     const errorResponse = err.response.data.errors;
-            //     const errArr = [];
-            //     for (const key of Object.keys(errorResponse)){
-            //         errArr.push(errorResponse[key].message)
-            //     }
-            //     setErrors(errArr);
-            //     console.log(errArr)
-            // })
+            .catch(err => {
+                console.log(err);
+                const errorResponse = err.response.data.errors;
+                const errArr = [];
+                for (const key of Object.keys(errorResponse)){
+                    errArr.push(errorResponse[key].message)
+                }
+                setErrors(errArr);
+                console.log(errArr)
+            })
     }
 
 
@@ -49,7 +50,7 @@ export default (props) => {
         <>
             <div>
                 <h2>Welcome to the Favorite Author DataBase!</h2>
-                <AuthorForm  onSubmitProp={createAuthor} initialFirstName="" initialLastName=""/>
+                <AuthorForm errors={errors} onSubmitProp={createAuthor} initialFirstName="" initialLastName=""/>
             </div>
             <hr/>
             {loaded && <AuthorsList authors={authors} update={update} removeFromDom={removeFromDom}/>}
