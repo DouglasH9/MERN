@@ -8,11 +8,13 @@ import { useHistory, Redirect } from "react-router";
 
 const EditAthlete = (props) => {
 
+    // const {errors} = props;
     const history = useHistory();
     const {id} = useParams();
     const [athlete, setAthlete] = useState();
     const [loaded, setLoaded] = useState(false);
     const [isEdited, setIsEdited] = useState(false);
+    const [errors, setErrors] = useState([]);
 
     useEffect( () => {
         axios.get("http://localhost:8000/api/athletes/" + id)
@@ -22,15 +24,26 @@ const EditAthlete = (props) => {
             })
     },[id]);
 
-    const updateAthleteHandler = (athlete) => {
-        axios.put("http://localhost:8000/api/athletes/" + id)
-            .then(res => console.log(res))
-            .then(res => setIsEdited(true)
-            )
-            .catch(err => console.log(err))
-    }
+    const updateAthleteHandler = ((athlete) => {
+        axios.put("http://localhost:8000/api/athletes/" + id, athlete)
+        .then(res=> {
+            if(res.data.err) {
+                console.log(res.data.err)
+            }
+        })
+        .catch(err => {
+            const errorResponse = err.response.data.errors;
+            const errArr = [];
+            for (const key of Object.keys(errorResponse)){
+                errArr.push(errorResponse[key].message)
+            }
+            setErrors(errArr);
+            setIsEdited(true);
+            console.log(errArr);
+        })
+    })
 
-    return isEdited ? 
+    return isEdited && !errors ? 
     <Redirect to="/"/> :
     (
         
@@ -39,6 +52,7 @@ const EditAthlete = (props) => {
             <>
                 <h1>Edit Athlete: {athlete.fName} {athlete.lName}</h1>
                 <AthleteForm
+                        errors={errors}
                         onSubmitProp={updateAthleteHandler}
                         initialFName={athlete.fName}
                         initialLName={athlete.lName}

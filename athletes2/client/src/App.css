@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.coolButton{
+  background-color: crimson;
+}

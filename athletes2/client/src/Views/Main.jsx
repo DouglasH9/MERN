@@ -31,7 +31,7 @@ const Main = (props) =>{
                 <ul>
                     {athletes.map((athlete, i) => {
                         return(
-                                <li key={i}><Link to={"/view/" + athlete._id}>{athlete.fName} {athlete.lName}</Link> | <Link to={"/edit/" + athlete._id}>Edit</Link> | <DeleteButton athleteId={athlete._id} successCallBack={removeFromDom}/></li>
+                                <li key={i}><Link to={"/view/" + athlete._id}>{athlete.fName} {athlete.lName}</Link> | <Link to={"/edit/" + athlete._id}>Edit</Link> | <DeleteButton variant="contained" color="error" athleteId={athlete._id} successCallBack={removeFromDom}/></li>
                             )
                         })}
                 </ul>

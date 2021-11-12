@@ -5,6 +5,7 @@ import { Redirect } from "react-router";
 
 const CreateAthlete = (props) => {
 
+
     const [isAdded, setIsAdded] = useState(false);
     const [errors, setErrors] = useState([]);
 
@@ -22,13 +23,15 @@ const CreateAthlete = (props) => {
                 errArr.push(errorResponse[key].message)
             }
             setErrors(errArr);
-            setIsAdded(true);
+            if(!errors){
+                setIsAdded(true);
+            }
             console.log(errArr);
         })
     })
     
 
-    return isAdded && !errors ?
+    return isAdded ?
     <Redirect to="/"/> :
     (
         <div>
