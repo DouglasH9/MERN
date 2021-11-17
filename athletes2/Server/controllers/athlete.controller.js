@@ -36,7 +36,7 @@ module.exports.grabOneAthlete = (req,res) => {
 
 module.exports.updateAthlete = (req,res) => {
     // const {fName, lName, sport, team} = req.body;
-    Athlete.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+    Athlete.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators:true})
         .then(updatedAthlete => res.json(updatedAthlete))
         .catch(err => {
             res.status(400).json(err)

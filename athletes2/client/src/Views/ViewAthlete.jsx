@@ -18,7 +18,7 @@ const ViewAthlete = (props) => {
             .catch(err => {
                 console.log(err)
             })
-    })
+    },[id])
 
     return(
         <div>

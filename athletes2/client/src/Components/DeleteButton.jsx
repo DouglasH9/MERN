@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "@material-ui/core/Button"
 
 
+
 const DeleteButton = (props) => {
 
     const {athleteId, successCallBack} = props;
@@ -19,7 +20,7 @@ const DeleteButton = (props) => {
     }
 
     return(
-        <Button className="coolButton" variant="contained" onClick={() => {
+        <Button className="coolButton" variant="contained"  color="secondary"  onClick={() => {
             const confirmBox = window.confirm(
                 "Are you sure you want to delete this athlete?"
             )

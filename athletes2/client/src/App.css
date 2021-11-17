@@ -37,6 +37,24 @@
   }
 }
 
-.coolButton{
-  background-color: crimson;
+.athList{
+  margin: 20px;
+  font-size: large;
+  font-weight: 700;
 }
+
+.mainList{
+  list-style: none;
+}
+
+.MuiPaper-root{
+  width: 70%;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* .mainContainer{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+} */
