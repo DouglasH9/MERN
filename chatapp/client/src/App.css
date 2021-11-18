@@ -2,37 +2,97 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-image: url(./imgs/shh.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.loginBox {
+  margin-top: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.loginForm {
+  margin-top: 250px;
+}
+
+.nameInput{
+  min-height: 30px;
+  width: 200px;
+  margin: 10px;
+  background-color: #5815eb;
   color: white;
+  border-radius: 3px;
+  font-weight: 900;
+  font-size: larger;
+  font-style: oblique;
+  text-shadow: 1px 1px #edb9ec;
+  /* transition: transform 0.1 ease-in-out; */
+  transition: transform 0.2s ease-in-out, background-color .4s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.flexBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.spy{
+  width: 40px;
+  height: 50px;
+  margin: 20px;
+  display: inline;
+}
+
+label{
+  font-weight: bolder;
+  font-size: x-large;
+  color: #28086e;
+}
+
+.nameInput:focus{
+  background-color: #28086e;
+  transform-origin: bottom left;
+  transform: rotate(10deg);
+}
+
+.submitBtn {
+  min-height: 30px;
+  border-radius: 4px;
+  background-color: #612ebf;
+  font-weight: bolder;
+  font-size: larger;
+  color: white;
+  transition: transform 0.1s ease-in-out;
+}
+
+.submitBtn:hover{
+  box-shadow: 2px 2px 2px rgb(0, 0, 0, .5);
+  transform-origin: bottom left;
+  transform: scale(1.2) rotate(-10deg);
+}
+
+.welcome{
+  color: #4503a1;
+  text-shadow:2px 2px #edb9ec;
+}
+
+.messageBox{
+  min-height: 100px;
+  width: 200px;
+  margin: auto;
+  margin-top: 5px;
+  color: #01523d;
+  text-shadow:2px 2px #f28fc7;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(176, 127, 245, .5);
+}
+
+.fixedForm{
+  position: fixed; bottom: 75px; left: 40%;
+  /* margin: auto; */
 }

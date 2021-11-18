@@ -2,11 +2,13 @@
 import React, {useState, useEffect} from "react";
 import io from "socket.io-client";
 
-function MessageForm() {
+function MessageForm(props) {
   // connection to backend server
     const [socket] = useState( () => io(":8000") );
     const [input, setInput] = useState("");
     const [messages, setMessages] = useState([]);
+
+
 
     useEffect(() => {
         console.log("Is this on?")
@@ -14,12 +16,11 @@ function MessageForm() {
             setMessages(prevMessages => {return [...prevMessages, inputMessage]});
         })
         // optional space for extra components
-        return () => socket.disconnect(true);
-        },[socket]);
+        },[]);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        socket.emit("chat", input);
+        socket.emit("chat", {user:props.user, message:input});
         setInput("");
     }
 
@@ -29,16 +30,16 @@ function MessageForm() {
     }
 
     return (
-    <div className="App">
-        <form onSubmit={onSubmitHandler}>
-        <input type="text" name="message" autoComplete="off" value={input} onChange={onChangeHandler}/>
-        <input type="submit" value="submit"/>
+    <div className="messageFormDiv">
+            {
+                messages.slice(0).reverse().map((msg, i) => {
+                return <div className="messageBox" key={i}><h3 >{msg.user}: {msg.message}</h3></div>
+            })
+                }
+        <form className="fixedForm" onSubmit={onSubmitHandler}>
+            <input className="nameInput" type="text" name="message" autoComplete="off" value={input} onChange={onChangeHandler}/>
+            <input className="submitBtn" type="submit" value="submit"/>
         </form>
-        {
-        messages.map((msg, i) => {
-            return <h3 key={i}>{msg}</h3>
-        })
-            }
     </div>
     );
 }
