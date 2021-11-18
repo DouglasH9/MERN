@@ -84,15 +84,36 @@ label{
   min-height: 100px;
   width: 200px;
   margin: auto;
-  margin-top: 5px;
-  color: #01523d;
+  margin-top: 15px;
+  margin-right: 350px;
+  color: #034b2f;
   text-shadow:2px 2px #f28fc7;
   border: 2px solid black;
   border-radius: 10px;
-  background-color: rgb(176, 127, 245, .5);
+  background-color: rgb(176, 127, 245, .8);
+}
+
+.userSpan{
+  color: rgb(122, 7, 30);
 }
 
 .fixedForm{
   position: fixed; bottom: 75px; left: 40%;
   /* margin: auto; */
 }
+
+.userDisplay{
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: rgba(155, 7, 160, 0.8);
+  font-weight: bolder;
+  padding: 10px;
+  position: fixed; top: 20px; right: 20px;
+
+}
+
+.userList{
+  list-style: none;
+  align-items: center;
+}
+

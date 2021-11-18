@@ -7,6 +7,7 @@ function MessageForm(props) {
     const [socket] = useState( () => io(":8000") );
     const [input, setInput] = useState("");
     const [messages, setMessages] = useState([]);
+    // const [updated, setUpdated] = useState(false);
 
 
 
@@ -21,6 +22,7 @@ function MessageForm(props) {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         socket.emit("chat", {user:props.user, message:input});
+        // setUpdated(!updated);
         setInput("");
     }
 
@@ -33,7 +35,7 @@ function MessageForm(props) {
     <div className="messageFormDiv">
             {
                 messages.slice(0).reverse().map((msg, i) => {
-                return <div className="messageBox" key={i}><h3 >{msg.user}: {msg.message}</h3></div>
+                return <div className="messageBox" key={i}><h3 ><span className="userSpan">{msg.user}: </span>{msg.message}</h3></div>
             })
                 }
         <form className="fixedForm" onSubmit={onSubmitHandler}>

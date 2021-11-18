@@ -27,7 +27,7 @@ const Login = (props) => {
         <div className="loginBox">
             <div className="flexBox">
                 <img className="spy" src={spyicon} alt="spy icon" />
-                <h1 className="welcome">Welcome to anonymous chat! Please enter a screen name to start chatting!</h1>
+                <h1 className="welcome">Welcome to the Dead Drop! Please enter a screen name to start messaging!</h1>
                 <img className="spy" src={spyicon} alt="spy icon" />
             </div>
             <form className="loginForm" onSubmit={submitHandler}>
