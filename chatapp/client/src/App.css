@@ -86,6 +86,7 @@ label{
   margin: auto;
   margin-top: 15px;
   margin-right: 350px;
+  font-family: 'Roboto Mono', monospace;
   color: #034b2f;
   text-shadow:2px 2px #f28fc7;
   border: 2px solid black;
@@ -106,6 +107,7 @@ label{
   border: 2px solid black;
   border-radius: 8px;
   background-color: rgba(155, 7, 160, 0.8);
+  font-family: 'Roboto Mono', monospace;
   font-weight: bolder;
   padding: 10px;
   position: fixed; top: 20px; right: 20px;
