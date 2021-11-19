@@ -45,6 +45,11 @@ body{
   height: 50px;
   margin: 20px;
   display: inline;
+  transition: transform .3s ease-in-out;
+}
+
+.spy:hover{
+  transform: rotateY(150deg);
 }
 
 label{

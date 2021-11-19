@@ -19,8 +19,6 @@ const Login = (props) => {
         // const user = {userName};
         props.login(userName);
         history.push("/chat");
-
-
     }
 
     return(
@@ -35,7 +33,6 @@ const Login = (props) => {
                 <input className="nameInput" type="text" onChange={(e)=> {setUserName(e.target.value)}} />
                 <input className="submitBtn" type="submit" value="submit" />
             </form>
-            
         </div>
     )
 }

@@ -9,8 +9,8 @@ import UserDisplay from "./components/UserDisplay";
 function App() {
 
   const [socket] = useState( () => io(":8000") );
-  const [user, setUser] = useState("")
-  const [userList, setUserList] = useState([])
+  const [user, setUser] = useState("");
+  const [userList, setUserList] = useState([]);
 
   // const updateList = (userName) => {
   //   console.log("updating the list...")
@@ -25,7 +25,6 @@ function App() {
   useEffect( () => {
     socket.on("userList", list => {
       setUserList(list);
-      console.log("user list: ", list);
   });
     return () => socket.disconnect(true);
   },[socket])

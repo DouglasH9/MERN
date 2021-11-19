@@ -12,7 +12,6 @@ function MessageForm(props) {
 
 
     useEffect(() => {
-        console.log("Is this on?")
         socket.on("send chat", inputMessage => {
             setMessages(prevMessages => {return [...prevMessages, inputMessage]});
         })
